@@ -6,7 +6,7 @@ app.get('/', function (req, res) {
 	console.log(req.ip+"\n");
 	res.send('{"ipaddress":"'+req.ip+'","language":"'+req.acceptsLanguages()[0]+'","software":"'+o.type()+" "+o.arch()+'"}');
 });
-var server = app.listen(8081, function () {
+var server = app.listen(process.env.port||8081, function () {
 	var host = 'localhost';
 	var port = server.address().port;
 	console.log("Listening at http://%s:%s", host, port);
