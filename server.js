@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 app.get('/*',function(req,res){
 	req.send("Hello");
 })
-var server = app.listen(app.get('port'), function () {
+var server = app.listen(process.env.PORT || 5000, function () {
 	var host = 'localhost';
 	var port = server.address().port;
 	console.log("Listening at http://%s:%s", host, port);
