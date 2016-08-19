@@ -2,13 +2,10 @@ var express = require('express');
 var o=require('os');
 var proces=require('process');
 var app = express();
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
 	console.log(req.ip+"\n");
 	res.send('{"ipaddress":"'+req.ip+'","language":"'+req.acceptsLanguages()[0]+'","software":"'+o.type()+" "+o.arch()+'"}');
 });
-app.get('/*',function(req,res){
-	res.send("Hello");
-})
 var server = app.listen(process.env.PORT || 5000, function () {
 	var host = 'localhost';
 	var port = server.address().port;
